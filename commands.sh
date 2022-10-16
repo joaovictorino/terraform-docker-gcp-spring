@@ -6,4 +6,10 @@
 # Install gcloud cli
 
 gcloud init
+gcloud auth application-default login
+
+gcloud projects create "palestra-ICI" --name="paletra-ICI"
+
 gcloud compute images list
+
+
