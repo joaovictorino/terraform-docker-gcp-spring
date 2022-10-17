@@ -113,6 +113,12 @@ resource "google_sql_database" "db-petclinic" {
   instance = google_sql_database_instance.db-service.name
 }
 
+resource "google_sql_user" "db-user-petclinic" {
+  name     = "petclinic"
+  instance = google_sql_database_instance.db-service.name
+  password = "petclinic"
+}
+
 output "service-url" {
   value = google_cloud_run_service.run-service.status[0].url
 }
