@@ -23,4 +23,3 @@ docker tag springapp:latest gcr.io/palestra-ici/springapp:latest
 
 # Upload image
 docker push gcr.io/palestra-ici/springapp:latest
-
