@@ -23,17 +23,17 @@ resource "google_cloud_run_service" "run-service" {
         image = "gcr.io/palestra-ici/springapp:latest"
 
         env {
-          name = "MYSQL_URL"
+          name  = "MYSQL_URL"
           value = "jdbc:mysql://tflab-mysqlserver-1-teste.mysql.database.azure.com:3306/exampledb?useSSL=true&requireSSL=false"
         }
-        
+
         env {
-          name = "MYSQL_USER"
+          name  = "MYSQL_USER"
           value = "root"
         }
-        
+
         env {
-          name = "MYSQL_PASS"
+          name  = "MYSQL_PASS"
           value = "Teste@admin123"
         }
       }
@@ -44,6 +44,7 @@ resource "google_cloud_run_service" "run-service" {
     percent         = 100
     latest_revision = true
   }
+
 }
 
 resource "google_cloud_run_service_iam_member" "run-service-all-members" {
@@ -57,10 +58,11 @@ resource "google_sql_database_instance" "db-service" {
   name             = "db-service"
   region           = var.region
   database_version = "MYSQL_5_7"
-  root_password = "Teste@admin123"
+  root_password    = "Teste@admin123"
   settings {
     tier = "db-f1-micro"
   }
+  deletion_protection = false
 }
 
 resource "google_container_registry" "container-registry" {
