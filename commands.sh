@@ -12,11 +12,16 @@ gcloud auth application-default login
 # Create project
 gcloud projects create "palestra-ICI" --name="paletra-ICI"
 
-# List VM images
-gcloud compute images list
-
 # Login Docker GCP
 gcloud auth configure-docker
+
+# Building jar
+cd springapp
+mvn package -DskipTests
+
+# Building Docker image
+cd ..
+docker build -t springapp .
 
 # Tag image GCP repository
 docker tag springapp:latest gcr.io/palestra-ici/springapp:latest
