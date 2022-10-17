@@ -11,20 +11,20 @@
 ### Architecture
 ![alt architecture](.documentation/terraform_gcp.jpg "Architecture")
 
-First of all, compile java application inside springapp folder
+First of all, compile java application inside springapp folder:
 
 ````sh
 mvn package -DskipTests
 ````
 
-After compile Docker images:
+Compile Docker images:
 
 ````sh
 docker build -t springapp .
 docker tag springapp:latest gcr.io/palestra-ici/springapp:latest
 ````
 
-Execute Terraform files inside terraform folder:
+And execute Terraform files inside terraform folder:
 
 ````sh
 terraform apply -auto-approve
