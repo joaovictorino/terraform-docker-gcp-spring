@@ -1,8 +1,8 @@
 resource "null_resource" "upload_image" {
   triggers = {
-    order = google_container_registry.container-registry.id
+    order = google_artifact_registry_repository.ar-aula.id
   }
   provisioner "local-exec" {
-    command = "docker push gcr.io/palestra-ici/springapp:latest"
+    command = "gcloud auth configure-docker us-central1-docker.pkg.dev && docker push us-central1-docker.pkg.dev/teste-sample-388301/ar-aula/springapp:latest"
   }
 }

@@ -4,7 +4,8 @@ resource "google_sql_database_instance" "db-service" {
   region           = var.region
 
   settings {
-    tier = "db-n1-standard-2"
+    tier = "db-f1-micro"
+    #db-g1-small
   }
 
   deletion_protection = false

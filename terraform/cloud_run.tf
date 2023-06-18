@@ -5,7 +5,7 @@ resource "google_cloud_run_service" "run-service" {
   template {
     spec {
       containers {
-        image = "gcr.io/palestra-ici/springapp:latest"
+        image = "us-central1-docker.pkg.dev/teste-sample-388301/ar-aula/springapp:latest"
 
         env {
           name  = "MYSQL_INSTANCE"
@@ -57,8 +57,4 @@ resource "google_cloud_run_service_iam_member" "run-service-all-members" {
   location = google_cloud_run_service.run-service.location
   role     = "roles/run.invoker"
   member   = "allUsers"
-}
-
-output "service-url" {
-  value = google_cloud_run_service.run-service.status[0].url
 }

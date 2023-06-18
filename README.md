@@ -1,33 +1,54 @@
-## How to execute Spring Boot PetClinic on GCP
+## Terraform ambiente PaaS no GCP, usando Cloud SQL MySQL e Cloud Run
 
-### Prerequisites
-- GCP account
-- Docker
-- Java 8
-- Maven 3.6
-- Terraform
-- gcloud cli
+Pré-requisitos
 
-### Architecture
-![alt architecture](.documentation/terraform_gcp.jpg "Architecture")
+- gcloud instalado
+- Terraform instalado
 
-First of all, compile java application inside springapp folder:
+Logar no GCP via gcloud, o navegador será aberto para que o login seja feito
 
-````sh
-mvn package -DskipTests
-````
+```sh
+gcloud auth login
+```
 
-Compile Docker images:
+Inicializar o Terraform
 
-````sh
+```sh
+terraform init
+```
+
+Compilar a imagem Dockerfile localmente
+
+```sh
 docker build -t springapp .
-docker tag springapp:latest gcr.io/palestra-ici/springapp:latest
-````
+```
 
-And execute Terraform files inside terraform folder:
+Renomear a imagem
 
-````sh
+```sh
+docker tag springapp:latest acraulaspring.azurecr.io/springapp:latest
+```
+
+Executar o Terraform
+
+```sh
 terraform apply -auto-approve
-````
+```
 
-Test the application accessing URL after Terraform.
+Logar no Registry do Azure
+
+```sh
+az acr login --name acraulaspring
+```
+
+Subir a imagem no Registry do Azure
+
+```sh
+docker push acraulaspring.azurecr.io/springapp:latest
+```
+
+Acessar a aplicação
+
+```sh
+curl http://aciaulaspring.eastus.azurecontainer.io
+```

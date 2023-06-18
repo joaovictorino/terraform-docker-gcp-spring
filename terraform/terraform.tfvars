@@ -1,4 +1,4 @@
-project          = "palestra-ici"
+project          = "teste-sample-388301"
 region           = "us-central1"
 credentials_file = "client-key.json"
 zone             = "us-central1-c"
