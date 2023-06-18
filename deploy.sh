@@ -6,6 +6,6 @@ docker tag springapp:latest us-central1-docker.pkg.dev/teste-sample-388301/ar-au
 
 cd terraform
 
-terraform init -upgrade
+terraform init
 
 terraform apply -auto-approve
