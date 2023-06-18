@@ -2,7 +2,7 @@
 
 docker build -t springapp .
 
-docker tag springapp:latest us-central1-docker.pkg.dev/teste-sample-388301/ar-aula/springapp:latest
+docker tag springapp:latest us-central1-docker.pkg.dev/teste-sample-388301/ar-aula-spring/springapp:latest
 
 cd terraform
 

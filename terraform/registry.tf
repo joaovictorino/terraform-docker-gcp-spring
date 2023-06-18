@@ -1,5 +1,5 @@
-resource "google_artifact_registry_repository" "ar-aula" {
+resource "google_artifact_registry_repository" "ar-aula-spring" {
   location      = var.region
-  repository_id = "ar-aula"
+  repository_id = "ar-aula-spring"
   format        = "DOCKER"
 }
