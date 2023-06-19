@@ -10,7 +10,7 @@ gcloud init
 gcloud auth application-default login
 
 # Create project
-gcloud projects create "palestra-ICI" --name="paletra-ICI"
+gcloud projects create "teste-sample" --name="teste-sample"
 
 # Login Docker GCP
 gcloud auth configure-docker
@@ -24,7 +24,7 @@ cd ..
 docker build -t springapp .
 
 # Tag image GCP repository
-docker tag springapp:latest gcr.io/palestra-ici/springapp:latest
+docker tag springapp:latest us-central1-docker.pkg.dev/teste-sample-388301/ar-aula-spring/springapp:latest
 
 # Upload image
-docker push gcr.io/palestra-ici/springapp:latest
+docker push us-central1-docker.pkg.dev/teste-sample-388301/ar-aula-spring/springapp:latest

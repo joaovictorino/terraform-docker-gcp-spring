@@ -26,29 +26,11 @@ docker build -t springapp .
 Renomear a imagem
 
 ```sh
-docker tag springapp:latest acraulaspring.azurecr.io/springapp:latest
+docker tag springapp:latest us-central1-docker.pkg.dev/teste-sample-388301/ar-aula-spring/springapp:latest
 ```
 
 Executar o Terraform
 
 ```sh
 terraform apply -auto-approve
-```
-
-Logar no Registry do Azure
-
-```sh
-az acr login --name acraulaspring
-```
-
-Subir a imagem no Registry do Azure
-
-```sh
-docker push acraulaspring.azurecr.io/springapp:latest
-```
-
-Acessar a aplicação
-
-```sh
-curl http://aciaulaspring.eastus.azurecontainer.io
 ```
