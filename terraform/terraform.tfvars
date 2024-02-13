@@ -1,7 +1,6 @@
 project          = "teste-sample-388301"
 region           = "us-central1"
 credentials_file = "client-key.json"
-zone             = "us-central1-c"
 db_name          = "petclinic"
 db_user          = "petclinic"
 db_pass          = "petclinic"
